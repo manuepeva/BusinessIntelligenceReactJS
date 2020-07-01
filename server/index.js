@@ -1,7 +1,7 @@
 const express = require('express');
 const socketio = require('socket.io');
 const http = require('http');
-
+const cors = require('cors');
 const {añadirUsuario, removerUsuario, getUsuario, getUsuariosRooms} = require('./usuarios');
 
 const PORT = process.env.PORT || 2600
@@ -9,6 +9,10 @@ const PORT = process.env.PORT || 2600
 const router = require('./router');
 
 const app = express();
+
+app.use(cors());
+
+
 const server = http.createServer(app);
 const io = socketio(server);
 
@@ -18,6 +22,7 @@ io.on('connection', (socket) => {
 
             socket.emit('message', {usuario: 'admin', text: `${usuario.name}, welcome to the room ${usuario.room}`});
 
+            // console.log(name);
             socket.broadcast.to(usuario.room).emit('message', {usuario: 'admin', text: `${usuario.name}, has joined!`})
 
         
