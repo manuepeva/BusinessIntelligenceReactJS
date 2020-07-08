@@ -11,7 +11,14 @@ const router = require('./router');
 const app = express();
 
 app.use(cors());
-
+// app.use((req, res, next)=> {
+//     res.header('Access-Control-Allow-Origin', '*');
+//     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+// });
+// if (req.method === 'OPTIONS'){
+//     res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET ');
+//     return res.status(200).json({});
+// }
 
 const server = http.createServer(app);
 const io = socketio(server);
@@ -49,3 +56,4 @@ io.on('connection', (socket) => {
 app.use(router);
 
 server.listen(PORT, () => console.log(`server has started on Port ${PORT}`));
+
