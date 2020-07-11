@@ -25,7 +25,7 @@ const removerUsuario = (id) => {
 
 }
 const getUsuario = (id) => {
-        usuarios.find((usuario) => usuario.id === id);
+        usuarios.find((usuarios) => usuario.id === id);
 }
 
 const getUsuariosRooms = (room) => usuarios.filter((usuario) => usuario.room === room);

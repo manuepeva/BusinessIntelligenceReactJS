@@ -55,6 +55,10 @@ io.on('connection', (socket) => {
     })
 });
 
+
+io.set('origins', `http://localhost:3000/`);
+
+
 app.use(router);
 
 server.listen(PORT, () => console.log(`server has started on Port ${PORT}`));

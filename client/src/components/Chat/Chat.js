@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import queryString from 'query-string';
 import io from 'socket.io-client';
 import './Chat.css';
-import InfoBar from '../Infobar/Infobar.css';
+import InfoBar from '../Infobar/Infobar';
 import Input from '../Input/Input';
 import Messages from '../Messages/Messages';
 let socket;
@@ -50,9 +50,7 @@ const Chat = ({location}) => {
     }
 
 
-    console.log(message, messages);
-
-
+    
     return (
         <div className="containerExterior">
             <div className="container">

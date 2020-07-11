@@ -3,9 +3,6 @@ import './Infobar.css';
 import closeIcon from '../../Icons/closeIcon.png';
 import onlineIcon from '../../Icons/onlineIcon.png';
 
-
-
-
 const InfoBar = ({room}) => (
         <div className="infobar">
             <div className="containerIzquierdoInterno">
@@ -13,9 +10,9 @@ const InfoBar = ({room}) => (
             <h3>{room}</h3>
             </div>
             <div className="containerDerechoInterno">
-             <a href="/"><img src={closeIcon} /></a>       
+             <a href="/"><img src={closeIcon}/></a>       
             </div>
         </div>
-)
+);
 
 export default InfoBar;
