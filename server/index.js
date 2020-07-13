@@ -10,9 +10,6 @@ const router = require('./router');
 
 const app = express();
 
-app.use(cors({
-    origin: 'http://localhost:3000'
-}));
 // app.use((req, res, next)=> {
 //     res.header('Access-Control-Allow-Origin', '*');
 //     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
@@ -56,7 +53,12 @@ io.on('connection', (socket) => {
 });
 
 
-io.set('origins', '*:*'); 
+io.origins((origin, callback) => {
+    if (origin !== 'http://localhost:3000'){
+        return console.log('origin not allowed', false);
+    }
+    callback(null, true);
+});
 
 app.use(router);
 
