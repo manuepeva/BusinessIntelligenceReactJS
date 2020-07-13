@@ -56,8 +56,7 @@ io.on('connection', (socket) => {
 });
 
 
-io.set('origins', `http://localhost:3000/`);
-
+io.set('origins', '*:*'); 
 
 app.use(router);
 

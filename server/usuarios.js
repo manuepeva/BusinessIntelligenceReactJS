@@ -25,6 +25,7 @@ const removerUsuario = (id) => {
 
 }
 const getUsuario = (id) => {
+        usuario = 0;
         usuarios.find((usuarios) => usuario.id === id);
 }
 
